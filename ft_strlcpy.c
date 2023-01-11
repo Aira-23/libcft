@@ -6,7 +6,7 @@
 /*   By: aindiaz <aindiaz@student.42urduliz>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 12:33:41 by aindiaz           #+#    #+#             */
-/*   Updated: 2022/12/15 14:03:59 by aindiaz          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:07:10 by aindiaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,16 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 
 	len = ft_strlen(src);
 	i = 0;
-	if (len + 1 < size)
+	if (!size)
 	{
-		while (i < len + 1)
-		{
-			dest[i] = src[i];
-			i++;
-		}		
+		return (len);
 	}
-	else if (size)
+	while (src[i] && i < size - 1)
 	{
-		while (i < size - 1)
-		{
-			dest[i] = src[i];
-		}
-		dest[i] = '\0';
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = '\0';
 	return (len);
 }
 /*
